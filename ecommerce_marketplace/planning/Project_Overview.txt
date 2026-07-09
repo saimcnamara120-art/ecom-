@@ -1,0 +1,13 @@
+Project Overview
+================
+
+The eCommerce Marketplace Application is a Django web application that
+allows users to register as buyers or vendors.
+
+Buyers can browse products, add products to a cart, checkout, view order
+history, and leave reviews.
+
+Vendors can create stores, add products, update products, delete products,
+and view orders connected to their products.
+
+The application uses MariaDB as the relational database backend.

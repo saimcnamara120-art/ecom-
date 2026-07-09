@@ -1,0 +1,28 @@
+Failure and Recovery Plan
+=========================
+
+Invalid Login
+-------------
+If a user enters incorrect login details, the application displays an
+error message and allows the user to try again.
+
+Missing Database Tables
+-----------------------
+If the database tables do not exist, run:
+
+python manage.py migrate
+
+MariaDB Setup Failure
+---------------------
+If migration fails because the database does not exist, create the
+MariaDB database and user before running migrate.
+
+Out of Stock Product
+--------------------
+If the buyer tries to checkout more products than are available, checkout
+is stopped and the buyer is informed.
+
+Server Failure
+--------------
+The project can be restored by reinstalling dependencies, recreating the
+MariaDB database, and rerunning migrations.

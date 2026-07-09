@@ -1,0 +1,17 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>Welcome</h2>
+
+<p>
+    This application allows buyers and vendors to use one online
+    marketplace platform.
+</p>
+
+<p>
+    Vendors can create stores and manage products. Buyers can browse
+    products, add items to a cart, checkout, and leave reviews.
+</p>
+
+<a href="{% url 'product_list' %}">Browse Products</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>Delete Store</h2>
+
+<p>
+    Are you sure you want to delete
+    <strong>{{ store.name }}</strong>?
+</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Delete Store</button>
+</form>
+
+<a href="{% url 'store_list' %}">Cancel</a>
+{% endblock %}

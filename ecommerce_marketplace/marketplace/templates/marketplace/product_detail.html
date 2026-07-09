@@ -1,0 +1,38 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>{{ product.name }}</h2>
+
+<p>{{ product.description }}</p>
+<p>Store: {{ product.store.name }}</p>
+<p>Price: ${{ product.price }}</p>
+<p>Quantity: {{ product.quantity }}</p>
+
+{% if user.is_authenticated and user.userprofile.role == 'buyer' %}
+    <a href="{% url 'add_to_cart' product.pk %}">Add to Cart</a>
+    <a href="{% url 'add_review' product.pk %}">Leave Review</a>
+{% endif %}
+
+{% if user == product.store.vendor %}
+    <br><br>
+    <a href="{% url 'edit_product' product.pk %}">Edit Product</a>
+    <a href="{% url 'delete_product' product.pk %}">Delete Product</a>
+{% endif %}
+
+<h3>Reviews</h3>
+
+{% for review in product.reviews.all %}
+    <section class="review">
+        <p>Rating: {{ review.rating }}/5</p>
+        <p>{{ review.comment }}</p>
+
+        {% if review.verified %}
+            <strong>Verified Review</strong>
+        {% else %}
+            <strong>Unverified Review</strong>
+        {% endif %}
+    </section>
+{% empty %}
+    <p>No reviews yet.</p>
+{% endfor %}
+{% endblock %}

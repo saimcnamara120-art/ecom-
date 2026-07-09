@@ -1,0 +1,53 @@
+# Practical Task 2 Research
+
+## JSON (JavaScript Object Notation)
+
+JSON is a lightweight format for exchanging structured data between applications.
+
+### Advantages
+1. Easy to read and write.
+2. Lightweight and fast to transmit.
+3. Supported by most programming languages.
+4. Easily converted into native objects.
+
+### Disadvantages
+1. Does not support comments.
+2. Limited validation compared with XML.
+3. Less suitable for complex document structures.
+4. Deep nesting can reduce readability.
+
+## XML (Extensible Markup Language)
+
+XML is a markup language used to store and exchange structured information.
+
+### Advantages
+1. Self-descriptive structure.
+2. Supports validation using XSD and DTD.
+3. Platform independent.
+4. Suitable for complex hierarchical data.
+
+### Disadvantages
+1. More verbose than JSON.
+2. Larger file sizes.
+3. Slower to parse.
+4. More difficult to read manually.
+
+## RESTful APIs
+
+RESTful APIs allow applications to communicate using standard HTTP methods.
+
+### Advantages
+1. Lightweight communication.
+2. Stateless architecture improves scalability.
+3. Supports JSON and XML.
+4. Easy to integrate with web and mobile applications.
+
+### Disadvantages
+1. Requires network connectivity.
+2. Security must be carefully implemented.
+3. Stateless design requires separate session handling.
+4. Poor API design can lead to inconsistent implementations.
+
+## Summary
+
+JSON, XML and RESTful APIs each have strengths and weaknesses. JSON is best suited to lightweight web applications, XML is useful for structured and validated documents, and RESTful APIs provide a standard way for applications to exchange data.

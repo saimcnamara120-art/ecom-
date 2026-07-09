@@ -1,0 +1,18 @@
+Security Plan
+=============
+
+Authentication is handled using Django's built-in authentication system.
+Passwords are not stored in plain text. Django hashes passwords before
+storing them in the database.
+
+Authorization is enforced by checking the user's role before allowing
+access to vendor-only or buyer-only actions.
+
+Vendor-only actions include creating stores, editing stores, deleting
+stores, creating products, editing products, and deleting products.
+
+Buyer-only actions include adding products to a cart, checking out, and
+leaving reviews.
+
+CSRF protection is included in all POST forms using Django template CSRF
+tokens.

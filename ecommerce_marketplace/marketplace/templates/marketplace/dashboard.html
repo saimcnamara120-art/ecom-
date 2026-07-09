@@ -1,0 +1,57 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>Dashboard</h2>
+
+<p>Welcome, {{ user.username }}.</p>
+<p>Account type: {{ profile.role|title }}</p>
+
+{% if profile.role == 'vendor' %}
+    <h3>Vendor Tools</h3>
+
+    <a class="button-link" href="{% url 'add_store' %}">
+        Create Store
+    </a>
+    <a class="button-link" href="{% url 'add_product' %}">
+        Add Product
+    </a>
+
+    <h3>Your Stores</h3>
+
+    {% for store in stores %}
+        <section class="card">
+            <h4>{{ store.name }}</h4>
+            <p>{{ store.description }}</p>
+            <a href="{% url 'edit_store' store.pk %}">Edit Store</a>
+            <a href="{% url 'delete_store' store.pk %}">Delete Store</a>
+        </section>
+    {% empty %}
+        <p>You have not created any stores yet.</p>
+    {% endfor %}
+
+    <h3>Your Products</h3>
+
+    {% for product in products %}
+        <section class="card">
+            <h4>{{ product.name }}</h4>
+            <p>${{ product.price }}</p>
+            <a href="{% url 'edit_product' product.pk %}">Edit Product</a>
+            <a href="{% url 'delete_product' product.pk %}">
+                Delete Product
+            </a>
+        </section>
+    {% empty %}
+        <p>You have not added any products yet.</p>
+    {% endfor %}
+{% else %}
+    <h3>Buyer Tools</h3>
+
+    <a class="button-link" href="{% url 'product_list' %}">
+        Browse Products
+    </a>
+    <a class="button-link" href="{% url 'cart' %}">View Cart</a>
+    <a class="button-link" href="{% url 'orders' %}">
+        View Orders
+    </a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>Products</h2>
+
+{% if user.is_authenticated and user.userprofile.role == 'vendor' %}
+    <a class="button-link" href="{% url 'add_product' %}">
+        Add New Product
+    </a>
+{% endif %}
+
+{% for product in products %}
+    <section class="card">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description|truncatewords:20 }}</p>
+        <p>Store: {{ product.store.name }}</p>
+        <p>Price: ${{ product.price }}</p>
+        <p>Quantity: {{ product.quantity }}</p>
+
+        <a href="{% url 'product_detail' product.pk %}">
+            View Details
+        </a>
+
+        {% if user.is_authenticated and user.userprofile.role == 'buyer' %}
+            <a href="{% url 'add_to_cart' product.pk %}">
+                Add to Cart
+            </a>
+        {% endif %}
+    </section>
+{% empty %}
+    <p>No products available.</p>
+{% endfor %}
+{% endblock %}

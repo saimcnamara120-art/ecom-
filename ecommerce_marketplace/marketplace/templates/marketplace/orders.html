@@ -1,0 +1,24 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>Your Orders</h2>
+
+{% for order in orders %}
+    <section class="card">
+        <h3>Order {{ order.id }}</h3>
+        <p>Date: {{ order.created_at }}</p>
+        <p>Total: ${{ order.total_price }}</p>
+
+        <ul>
+            {% for item in order.items.all %}
+                <li>
+                    {{ item.product.name }} x {{ item.quantity }}
+                    - ${{ item.subtotal }}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% empty %}
+    <p>You have no orders yet.</p>
+{% endfor %}
+{% endblock %}

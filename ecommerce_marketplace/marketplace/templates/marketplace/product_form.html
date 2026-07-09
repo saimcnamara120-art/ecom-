@@ -1,0 +1,26 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>
+    {% if product %}
+        Edit Product
+    {% else %}
+        Add Product
+    {% endif %}
+</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">
+        {% if product %}
+            Update Product
+        {% else %}
+            Add Product
+        {% endif %}
+    </button>
+</form>
+
+<a href="{% url 'product_list' %}">Back to Products</a>
+{% endblock %}

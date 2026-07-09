@@ -1,0 +1,25 @@
+System Requirements
+===================
+
+Functional Requirements
+-----------------------
+
+1. Users can register as buyers or vendors.
+2. Users can log in and log out.
+3. Users can reset forgotten passwords.
+4. Vendors can create, view, edit, and delete stores.
+5. Vendors can create, view, edit, and delete products.
+6. Buyers can view products.
+7. Buyers can add products to a cart.
+8. Buyers can checkout and create orders.
+9. Buyers can leave product reviews.
+10. Users can view role-specific dashboard pages.
+
+Non-Functional Requirements
+---------------------------
+
+1. Passwords must be handled by Django authentication.
+2. Vendor actions must be protected by role checks.
+3. Buyer cart and checkout actions must be protected by role checks.
+4. The database must use MariaDB.
+5. The application should use readable templates and clear navigation.

@@ -1,0 +1,11 @@
+CRUD Matrix
+===========
+
+Entity       Create        Read          Update        Delete
+-------------------------------------------------------------
+UserProfile  Register      User/Admin    Admin         Admin
+Store        Vendor        All Users     Vendor Owner  Vendor Owner
+Product      Vendor        All Users     Vendor Owner  Vendor Owner
+Cart         Buyer/System  Buyer         Buyer         Buyer
+Order        Buyer/System  Buyer/Vendor  System        Admin
+Review       Buyer         All Users     Buyer/Admin   Buyer/Admin

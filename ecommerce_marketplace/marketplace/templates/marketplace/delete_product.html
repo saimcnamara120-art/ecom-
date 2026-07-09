@@ -1,0 +1,17 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>Delete Product</h2>
+
+<p>
+    Are you sure you want to delete
+    <strong>{{ product.name }}</strong>?
+</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Yes, Delete Product</button>
+</form>
+
+<a href="{% url 'product_detail' product.pk %}">Cancel</a>
+{% endblock %}

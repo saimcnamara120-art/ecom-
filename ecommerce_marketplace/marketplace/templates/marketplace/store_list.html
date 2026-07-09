@@ -1,0 +1,26 @@
+{% extends 'marketplace/base.html' %}
+
+{% block content %}
+<h2>Stores</h2>
+
+{% if user.is_authenticated and user.userprofile.role == 'vendor' %}
+    <a class="button-link" href="{% url 'add_store' %}">
+        Create New Store
+    </a>
+{% endif %}
+
+{% for store in stores %}
+    <section class="card">
+        <h3>{{ store.name }}</h3>
+        <p>{{ store.description }}</p>
+        <p>Vendor: {{ store.vendor.username }}</p>
+
+        {% if user == store.vendor %}
+            <a href="{% url 'edit_store' store.pk %}">Edit Store</a>
+            <a href="{% url 'delete_store' store.pk %}">Delete Store</a>
+        {% endif %}
+    </section>
+{% empty %}
+    <p>No stores available.</p>
+{% endfor %}
+{% endblock %}
